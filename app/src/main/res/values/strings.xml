@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!-- SPDX-FileCopyrightText: 2026 The MixFlip2Hinge Authors -->
+<resources>
+    <!-- 应用名（桌面/外屏图标下显示） -->
+    <string name="app_name">转轴角度</string>
+    <!-- 顶部标题：机型 + 测试目标 -->
+    <string name="header">MIX FLIP 2 · HINGE ANGLE</string>
+    <string name="angle_caption">标准 HINGE_ANGLE 传感器 · 0–180°</string>
+    <!-- 统计行占位符，运行后被实际数据覆盖 -->
+    <string name="stat_placeholder">--</string>
+    <!-- 姿态卡片标题：内屏（跨轴窗口）与外屏（合盖）两种文案 -->
+    <string name="posture_title">折叠姿态 · JETPACK WINDOWMANAGER</string>
+    <string name="posture_title_cover">外屏模式 · COVER DISPLAY</string>
+    <string name="posture_cover">外屏显示中</string>
+    <string name="posture_cover_detail">已合盖 · 外屏窗口不跨越转轴，没有 FoldingFeature。\n转轴角度与传感器数据仍然实时可用。</string>
+    <string name="posture_wait">等待窗口信息…</string>
+    <string name="posture_none">无折叠特性</string>
+    <string name="posture_none_detail">当前窗口没有 FoldingFeature，通常表示内容显示在外屏或未跨越转轴。</string>
+    <!-- 传感器信息卡片标题与缺失提示 -->
+    <string name="sensor_title">转轴传感器</string>
+    <string name="sensor_missing">未找到 TYPE_HINGE_ANGLE 传感器</string>
+    <string name="log_title">原始事件流</string>
+    <!-- 底部操作提示 -->
+    <string name="hint">缓慢开合转轴，角度与姿态会实时变化。\n外屏模式下没有折叠特性，角度传感器仍然可用。</string>
+</resources>

@@ -1,0 +1,7 @@
+// SPDX-License-Identifier: Apache-2.0
+// SPDX-FileCopyrightText: 2026 The MixFlip2Hinge Authors
+
+// 根工程构建脚本：只做插件版本声明，具体配置在 app/build.gradle
+plugins {
+    id 'com.android.application' version '9.0.1' apply false
+}

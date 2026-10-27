@@ -1,0 +1,23 @@
+// SPDX-License-Identifier: Apache-2.0
+// SPDX-FileCopyrightText: 2026 The MixFlip2Hinge Authors
+
+// 工程级 Gradle 配置：仓库来源统一在 settings.gradle 中管理（FAIL_ON_PROJECT_REPOS）
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    // 禁止各模块私自声明仓库，统一走这里的配置
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = 'MixFlip2Hinge'
+include ':app'

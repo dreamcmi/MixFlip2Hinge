@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!-- SPDX-FileCopyrightText: 2026 The MixFlip2Hinge Authors -->
+<!-- 启动图标前景：抽象的折叠形态 —— 左右两块“屏幕”+ 顶部铰链圆点 + 底部开合弧线 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 左半屏（深蓝） -->
+    <path
+        android:fillColor="#4DA3FF"
+        android:pathData="M36,30h14a4,4 0 0 1 4,4v40a4,4 0 0 1 -4,4h-14a4,4 0 0 1 -4,-4v-40a4,4 0 0 1 4,-4z" />
+
+    <!-- 右半屏（浅色） -->
+    <path
+        android:fillColor="#F2F5F9"
+        android:pathData="M58,30h14a4,4 0 0 1 4,4v40a4,4 0 0 1 -4,4h-14a4,4 0 0 1 -4,-4v-40a4,4 0 0 1 4,-4z" />
+
+    <!-- 顶部铰链圆点 -->
+    <path
+        android:fillColor="#4DA3FF"
+        android:pathData="M54,24a4,4 0 1 0 0,8a4,4 0 1 0 0,-8z" />
+
+    <!-- 底部开合角度弧线 -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M32,86a30,30 0 0 1 44,0"
+        android:strokeColor="#4DA3FF"
+        android:strokeLineCap="round"
+        android:strokeWidth="3" />
+
+</vector>

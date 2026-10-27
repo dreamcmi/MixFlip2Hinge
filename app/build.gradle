@@ -1,0 +1,48 @@
+// SPDX-License-Identifier: Apache-2.0
+// SPDX-FileCopyrightText: 2026 The MixFlip2Hinge Authors
+plugins {
+    id 'com.android.application'
+}
+
+// ---- 外屏测试专用 applicationId 覆盖 ----
+// 小米外屏全屏白名单按 applicationId 匹配（见仓库根 cover-allowlist.txt）。
+// 调试外屏时可用 -PcoverAppId=<白名单内的包名> 把本应用伪装成白名单应用：
+//
+//   ./gradlew installDebug -PcoverAppId=cn.damai
+//
+// 不传该属性时保持默认包名 com.example.hingedemo（不在白名单内，
+// 合盖后无法在外屏全屏运行，可用于验证白名单拦截行为本身）。
+def coverAppId = project.hasProperty('coverAppId') ? project.property('coverAppId') : 'com.example.hingedemo'
+
+android {
+    namespace 'com.example.hingedemo'
+    // TYPE_HINGE_ANGLE 传感器要求 API 30（Android 11）及以上
+    compileSdk 36
+
+    defaultConfig {
+        // 注意：只改 applicationId、不改 namespace，代码无需任何变动
+        applicationId coverAppId
+        minSdk 30          // Android 11，TYPE_HINGE_ANGLE 的最低系统版本
+        targetSdk 36
+        versionCode 1
+        versionName '1.0'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core:1.13.1'
+    // Jetpack WindowManager：提供 FoldingFeature（折叠姿态/转轴位置），
+    // 与 TYPE_HINGE_ANGLE 传感器互补，见 MainActivity 的类注释
+    implementation 'androidx.window:window-java:1.2.0'
+}

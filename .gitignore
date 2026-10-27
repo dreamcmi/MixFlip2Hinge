@@ -1,0 +1,55 @@
+# ---- 构建产物（Gradle / Android）----
+.gradle/
+build/
+app/build/
+**/build/
+out/
+bin/
+gen/
+captures/
+.cxx/
+.obj/
+
+# ---- IDE / 编辑器 ----
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.classpath
+.project
+*.swp
+
+# ---- 签名与密钥（绝不能提交）----
+*.jks
+*.keystore
+keystore.properties
+key.properties
+
+# ---- 本地环境配置 ----
+local.properties
+*.env
+
+# ---- 打包产物 ----
+*.apk
+*.ap_
+*.aab
+*.dex
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# ---- 日志与临时文件 ----
+*.log
+*.tmp
+*.bak
+hs_err_pid*
+
+# ---- 测试截图（本地调试用）----
+shot*.png
+shot-cover.png
+
+# ---- 系统杂项 ----
+.DS_Store
+Thumbs.db
+desktop.ini

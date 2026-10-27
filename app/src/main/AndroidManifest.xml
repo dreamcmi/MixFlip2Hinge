@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!-- SPDX-FileCopyrightText: 2026 The MixFlip2Hinge Authors -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+      声明会用到铰链角度传感器（Android 11 / API 30 引入的标准类型）。
+      required="false"：非折叠设备上也能安装运行，只是拿不到角度数据。
+    -->
+    <uses-feature
+        android:name="android.hardware.sensor.hinge_angle"
+        android:required="false" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:resizeableActivity="true"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.HingeDemo">
+
+        <!--
+          MIUI 私有元数据：声明本应用支持折叠屏“外屏全屏显示”。
+          小米小折叠的外屏（合盖后的副屏）上，只有满足以下条件的应用
+          才能以全屏形态运行：
+            1. 声明了 miui.supportFlipFullScreen = 1；
+            2. 响应 miui.fliphome.default 这个 MIUI 私有 action（见下方
+               intent-filter）；
+            3. applicationId 位于小米外屏白名单中（见仓库根目录
+               cover-allowlist.txt）。
+          三个条件缺一不可，白名单是最大的拦路虎，详见 README.md
+          「小米外屏白名单问题」一节。
+        -->
+        <meta-data
+            android:name="miui.supportFlipFullScreen"
+            android:value="1" />
+
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboardHidden"
+            android:exported="true">
+
+            <!-- 活动级再声明一次，确保外屏启动器能识别本活动 -->
+            <meta-data
+                android:name="miui.supportFlipFullScreen"
+                android:value="1" />
+
+            <!--
+              MIUI 私有 action：合盖后在外屏点击本应用图标时，
+              外屏启动器通过该 action 拉起此活动。没有这个
+              intent-filter，应用只能在内屏启动，合盖即退到后台。
+            -->
+            <intent-filter>
+                <action android:name="miui.fliphome.default" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- 标准桌面启动入口 -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
